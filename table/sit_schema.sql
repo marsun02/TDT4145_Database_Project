@@ -20,7 +20,7 @@ CREATE TABLE bruker(
   m_navn          VARCHAR(50) NOT NULL,
   e_navn          VARCHAR(50) NOT NULL,
   epost           VARCHAR(110) NOT NULL UNIQUE,
-  mobil           VARCHAR(25) NOT NULL,
+  mobil           VARCHAR(25) NOT NULL UNIQUE,
   PRIMARY KEY(id)
 );
 
