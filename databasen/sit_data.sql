@@ -110,8 +110,7 @@ INSERT INTO fasilitet (id, type_) VALUES
 (8,  'Hall'),
 (9,  'Garderober'),
 (10, 'Badstue'),
-(11, 'Dusj'),
-(12, 'Ubemannet treningssenter');
+(11, 'Dusj');
 
 INSERT INTO tilbyr (treningsenter_id, fasilitet_id) VALUES
 -- Øya
@@ -125,8 +124,7 @@ INSERT INTO tilbyr (treningsenter_id, fasilitet_id) VALUES
 (1, 8),  -- Hall
 (1, 9),  -- Garderober
 (1,10),  -- Badstue
-(1,11),  -- Dusj
-(1,12);  -- Ubemannet treningssenter
+(1,11);  -- Dusj
 
 
 INSERT INTO gruppetrening_okt (id, ansatt_id, type_id, treningsenter_id, sal_id, dato, start_tid, slutt_tid, publisert_tid, kapasitet) VALUES
