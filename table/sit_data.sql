@@ -1,6 +1,15 @@
 insert into treningsenter (id, apningstid_id, bemanningstid_id, adresse_id, navn, selvtrening) VALUES
-(1,1,1,1, 'Øya', TRUE),
-(2,2,2,2, 'Dragvoll', TRUE);
+(1,1,NULL,1, 'Øya', TRUE),
+(2,2,2,2, 'Dragvoll', TRUE),
+(2,2,3,2, 'Dragvoll', TRUE),
+(2,2,4,2, 'Dragvoll', TRUE),
+(2,2,5,2, 'Dragvoll', TRUE),
+(2,2,6,2, 'Dragvoll', TRUE),
+(2,2,7,2, 'Dragvoll', TRUE),
+(2,2,8,2, 'Dragvoll', TRUE),
+(2,2,9,2, 'Dragvoll', TRUE),
+(2,2,10,2, 'Dragvoll', TRUE),
+(2,2,11,2, 'Dragvoll', TRUE);
 
 INSERT INTO apningstid (id, dag, start_tid, slutt_tid) VALUES
 (1, 'Mandag-søndag', '05:00:00', '00:00:00'),
@@ -11,6 +20,7 @@ INSERT INTO adresse (id, gate, nr, postnr, poststed) VALUES
 (2, 'Loholt allé', 81, '7049', 'Trondheim');
 
 INSERT INTO bemanningstid (id, dag, start_tid, slutt_tid) VALUES
+-- Dragvoll
 -- Formiddag mandag, onsdag, fredag: 08:00–12:00
 (2, 'Mandag',  '08:00:00', '12:00:00'),
 (3, 'Onsdag',  '08:00:00', '12:00:00'),
