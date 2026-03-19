@@ -8,9 +8,8 @@ CREATE TABLE ansatt (
 
 CREATE TABLE type_gruppetrening(
   id              INT NOT NULL,
-  gruppetrening_navn    VARCHAR(50) ,
-  type_            VARCHAR(50)  ,
-  beskrivelse      VARCHAR(250) ,
+  program_id      INT NOT NULL,
+  type_           VARCHAR(50),
   PRIMARY KEY (id)
 );
 
@@ -52,7 +51,7 @@ CREATE TABLE adresse(
 
 CREATE TABLE fasilitet(
   id                INT NOT NULL,
-  type              VARCHAR(20) NOT NULL,
+  type_             VARCHAR(20) NOT NULL,
   PRIMARY KEY (id)
 );
 
@@ -124,12 +123,10 @@ CREATE TABLE gruppetrening_okt(
   type_id         INT NOT NULL,
   treningsenter_id  INT NOT NULL,
   sal_id          INT NOT NULL,
-
   dato            DATE NOT NULL,
   start_tid       TIME NOT NULL,
   slutt_tid       TIME NOT NULL,
   publisert_tid   DATETIME NOT NULL,
-
   kapasitet       INT NOT NULL CHECK (kapasitet > 0),
   PRIMARY KEY (id),
   FOREIGN KEY (ansatt_id) REFERENCES ansatt(id),
