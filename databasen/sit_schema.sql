@@ -8,9 +8,8 @@ CREATE TABLE ansatt (
 
 CREATE TABLE type_gruppetrening(
   id              INT NOT NULL,
-  gruppetrening_navn    VARCHAR(50) ,
-  type_            VARCHAR(50)  ,
-  beskrivelse      VARCHAR(250) ,
+  program_id      INT NOT NULL,
+  type_           VARCHAR(50),
   PRIMARY KEY (id)
 );
 
@@ -37,7 +36,8 @@ CREATE TABLE bemanningstid(
   dag             VARCHAR(15) NOT NULL,
   start_tid       TIME        NOT NULL,
   slutt_tid       TIME        NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY(id) REFERENCES treningssenter(bemanningstid_id)
 );
 
 CREATE TABLE adresse(
@@ -51,10 +51,7 @@ CREATE TABLE adresse(
 
 CREATE TABLE fasilitet(
   id                INT NOT NULL,
-  ovelser           INT         ,
-  garderobe         BOOLEAN NOT NULL DEFAULT FALSE,
-  dusj              BOOLEAN NOT NULL DEFAULT FALSE,
-  badstue           BOOLEAN NOT NULL DEFAULT FALSE,
+  type_             VARCHAR(20) NOT NULL,
   PRIMARY KEY (id)
 );
 
@@ -79,9 +76,8 @@ CREATE TABLE treningsenter(
   adresse_id       INT NOT NULL,
   navn            VARCHAR(50) NOT NULL,
   selvtrening     BOOLEAN NOT NULL DEFAULT FALSE,
-  PRIMARY KEY(id)             ,
+  PRIMARY KEY(id),
   FOREIGN KEY(apningstid_id)  REFERENCES apningstid(id),
-  FOREIGN KEY(bemanningstid_id) REFERENCES bemanningstid(id),
   FOREIGN KEY(adresse_id) REFERENCES adresse(id)
 );
 
@@ -125,12 +121,17 @@ CREATE TABLE gruppetrening_okt(
   id              INT NOT NULL,
   ansatt_id       INT NOT NULL,
   type_id         INT NOT NULL,
+  treningsenter_id  INT NOT NULL,
   sal_id          INT NOT NULL,
+  dato            DATE NOT NULL,
+  start_tid       TIME NOT NULL,
+  slutt_tid       TIME NOT NULL,
   publisert_tid   DATETIME NOT NULL,
   kapasitet       INT NOT NULL CHECK (kapasitet > 0),
   PRIMARY KEY (id),
   FOREIGN KEY (ansatt_id) REFERENCES ansatt(id),
   FOREIGN KEY (type_id) REFERENCES type_gruppetrening(id),
+  FOREIGN KEY (treningsenter_id) REFERENCES treningsenter(id),
   FOREIGN KEY (sal_id) REFERENCES sal(id)
 );
 
