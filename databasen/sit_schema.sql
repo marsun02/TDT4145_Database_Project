@@ -7,7 +7,7 @@ CREATE TABLE ansatt (
 );
 
 CREATE TABLE type_gruppetrening(
-  id              INT NOT NULL,
+  okt_id              INT NOT NULL,
   program_id      INT NOT NULL,
   type_           VARCHAR(50),
   PRIMARY KEY (id)
@@ -72,7 +72,7 @@ CREATE TABLE medlem(
 CREATE TABLE treningsenter(
   id            INT NOT NULL,
   apningstid_id   INT NOT NULL,
-  bemanningstid_id   INT NOT NULL,
+  bemanningstid_id   INT,
   adresse_id       INT NOT NULL,
   navn            VARCHAR(50) NOT NULL,
   selvtrening     BOOLEAN NOT NULL DEFAULT FALSE,
@@ -175,4 +175,11 @@ CREATE TABLE reservasjon(
   FOREIGN KEY (sal_id) REFERENCES sal(id),
   FOREIGN KEY (gruppenavn, idrettslag_id)
   REFERENCES idrettslag_gruppe(gruppenavn, idrettslag_id)
+);
+
+CREATE TABLE program(
+  id              INT NOT NULL,
+  program_navn    VARCHAR(100) NOT NULL,
+  beskrivelse     VARCHAR(250),
+  PRIMARY KEY (id)
 );
