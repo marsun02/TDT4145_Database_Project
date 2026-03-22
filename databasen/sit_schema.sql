@@ -183,3 +183,11 @@ CREATE TABLE program(
   beskrivelse     VARCHAR(250),
   PRIMARY KEY (id)
 );
+
+CREATE TABLE svarteliste (
+  bruker_id   INT NOT NULL,
+  start_dato  DATE NOT NULL,
+  slutt_dato  DATE NOT NULL,
+  PRIMARY KEY (bruker_id, start_dato),
+  FOREIGN KEY (bruker_id) REFERENCES bruker(id)
+);
