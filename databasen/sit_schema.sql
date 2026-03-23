@@ -158,10 +158,11 @@ CREATE TABLE booking(
 );
 
 CREATE TABLE prikk(
-  id             INT NOT NULL,
-  bruker_id      INT NOT NULL,
-  dato           DATE        ,
-  grunn          VARCHAR(250),
+  id             INT NOT NULL ,
+  bruker_id      INT NOT NULL ,
+  dato           DATE         ,
+  slutt_dato     DATE NOT NULL,
+  grunn          VARCHAR(250) ,
   PRIMARY KEY (id),
   FOREIGN KEY (bruker_id) REFERENCES bruker(id)
 );
