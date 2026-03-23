@@ -14,7 +14,7 @@ if __name__ == "__main__":
     run_use_case("brukstilfelle-1", "data_insertion.py")
     run_use_case("brukstilfelle-2", "booking.py")
     run_use_case("brukstilfelle-3", "attendance.py")
-    run_use_case("brukstilfelle-4", "brukstilfelle-4.py")
+    run_use_case("brukstilfelle-4", "weekly_schedule.py")
     run_use_case("brukstilfelle-5", "history.py")
     run_use_case("brukstilfelle-6", "svarteliste.py")
     run_use_case("brukstilfelle-7", "flest_treninger.py")
