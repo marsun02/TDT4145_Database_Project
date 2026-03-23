@@ -72,6 +72,16 @@ CREATE TABLE bemanningstid(
   slutt_tid       TIME        NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY(treningsenter_id) REFERENCES treningsenter(id)
+
+);
+
+-- Koblingstabell mellom treningssenter og bemanningstid
+CREATE TABLE treningsenter_bemanningstid(
+  treningsenter_id INT,
+  bemanningstid_id INT,
+  PRIMARY KEY (treningsenter_id, bemanningstid_id),
+  FOREIGN KEY (treningsenter_id) REFERENCES treningsenter(id),
+  FOREIGN KEY (bemanningstid_id) REFERENCES bemanningstid(id)
 );
 
 CREATE TABLE sal(
@@ -148,10 +158,11 @@ CREATE TABLE booking(
 );
 
 CREATE TABLE prikk(
-  id             INT NOT NULL,
-  bruker_id      INT NOT NULL,
-  dato           DATE        ,
-  grunn          VARCHAR(250),
+  id             INT NOT NULL ,
+  bruker_id      INT NOT NULL ,
+  dato           DATE         ,
+  slutt_dato     DATE NOT NULL,
+  grunn          VARCHAR(250) ,
   PRIMARY KEY (id),
   FOREIGN KEY (bruker_id) REFERENCES bruker(id)
 );
