@@ -48,7 +48,7 @@ def brukstilfelle_3():
 def brukstilfelle_4():
     print("Brukstilfelle 4: Ukeplan")
     os.chdir(os.path.join(BASE_DIR, "brukstilfelle-4"))
-    os.system("python weekly_schedule.py")
+    os.system("python brukstilfelle-4.py")
     os.chdir("..")
 
 def brukstilfelle_5():
