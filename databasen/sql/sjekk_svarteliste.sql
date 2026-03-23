@@ -1,4 +1,4 @@
 SELECT 1
-FROM prikk
+FROM svarteliste
 WHERE bruker_id = ?
-AND slutt_dato >= dato('now');
+AND slutt_dato >= date('now');

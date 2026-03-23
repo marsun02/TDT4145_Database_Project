@@ -9,8 +9,8 @@ INSERT INTO adresse (id, gate, nr, postnr, poststed) VALUES
 -- Øya treningssenter er ubemannet
 
 INSERT INTO treningsenter (id, apningstid_id, adresse_id, navn) VALUES
-(1, 1, 1, 'Øya', TRUE),
-(2, 2, 2, 'Dragvoll', TRUE);
+(1, 1, 1, 'Øya'),
+(2, 2, 2, 'Dragvoll');
 
 INSERT INTO treningsenter_bemanningstid(treningsenter_id, bemanningstid_id) VALUES
 (2, 2),
@@ -182,3 +182,8 @@ INSERT INTO booking (id, okt_id, bruker_id, opprettet_tid, kansellert_tid, statu
 (103, 4, 1, '2026-01-09 12:00:00', NULL, 'deltatt', '2026-01-10 16:50:00'),
 (104, 5, 1, '2026-01-09 12:00:00', NULL, 'deltatt', '2026-01-10 16:50:00'),
 (105, 6, 1, '2026-01-09 12:00:00', NULL, 'deltatt', '2026-01-10 16:50:00');
+
+INSERT INTO prikk (id, bruker_id, dato, slutt_dato, grunn) VALUES
+(1, 9, '2026-03-20', '2026-03-20', 'No show'),
+(2, 9, '2026-03-21', '2026-03-21', 'Late'),
+(3, 9, '2026-03-22', '2026-03-22', 'Disruptive');

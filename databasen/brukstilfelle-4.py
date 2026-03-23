@@ -6,7 +6,7 @@ db_fil = base / "sit.db"
 sql_fil = base / "sql/finn_timeplan.sql"
 
 # Står i forumet at det holder å legge inn startdato som parameter. Vi legger altså ikke inn ukenummer.
-start_dato = "2025-03-16"
+start_dato = "2026-03-16"
 
 with open(sql_fil, "r", encoding="utf-8") as f:
     query = f.read()

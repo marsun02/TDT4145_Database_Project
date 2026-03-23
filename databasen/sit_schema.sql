@@ -202,4 +202,12 @@ CREATE TABLE selvtrening(
   PRIMARY KEY (dato, tid_sjekket_inn, epost),
   FOREIGN KEY (epost) REFERENCES bruker(epost),
   FOREIGN KEY (treningsenter_id) REFERENCES treningsenter(id)
-)
+);
+
+CREATE TABLE svarteliste(
+  bruker_id      INT NOT NULL,
+  start_dato     DATE NOT NULL,
+  slutt_dato     DATE NOT NULL,
+  PRIMARY KEY (bruker_id),
+  FOREIGN KEY (bruker_id) REFERENCES bruker(id)
+);

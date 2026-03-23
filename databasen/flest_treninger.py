@@ -1,4 +1,5 @@
 import sqlite3
+import sys
 
 DB = "sit.db"
 
@@ -11,7 +12,7 @@ def flest_treninger(maaned, aar):
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
 
-    sql = les_sql("databasen/sql/flest_treninger.sql")
+    sql = les_sql("sql/flest_treninger.sql")
 
     # NB: måned må være '03', '04' osv
     maaned_str = f"{int(maaned):02d}"
@@ -27,3 +28,9 @@ def flest_treninger(maaned, aar):
             print(f"{rad['epost']} - {rad['antall']} økter")
 
     conn.close()
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Usage: python flest_treninger.py <maaned> <aar>")
+    else:
+        flest_treninger(sys.argv[1], sys.argv[2])
