@@ -26,18 +26,21 @@ INSERT INTO bemanningstid (id, dag, start_tid, slutt_tid) VALUES
 
 -- Øya treningssenter er ubemannet
 
-INSERT INTO treningsenter (id, apningstid_id, bemanningstid_id, adresse_id, navn, selvtrening) VALUES
-(1,1,NULL,1, 'Øya', TRUE),
-(2,2,2,2, 'Dragvoll', TRUE),
-(2,2,3,2, 'Dragvoll', TRUE),
-(2,2,4,2, 'Dragvoll', TRUE),
-(2,2,5,2, 'Dragvoll', TRUE),
-(2,2,6,2, 'Dragvoll', TRUE),
-(2,2,7,2, 'Dragvoll', TRUE),
-(2,2,8,2, 'Dragvoll', TRUE),
-(2,2,9,2, 'Dragvoll', TRUE),
-(2,2,10,2, 'Dragvoll', TRUE),
-(2,2,11,2, 'Dragvoll', TRUE);
+INSERT INTO treningsenter (id, apningstid_id, adresse_id, navn, selvtrening) VALUES
+(1, 1, 1, 'Øya', TRUE),
+(2, 2, 2, 'Dragvoll', TRUE);
+
+INSERT INTO treningsenter_bemanningstid(treningsenter_id, bemanningstid_id) VALUES
+(2, 2),
+(2, 3),
+(2, 4),
+(2, 5),
+(2, 6),
+(2, 7),
+(2, 8),
+(2, 9),
+(2, 10),
+(2, 11);
 
 INSERT INTO ansatt (id, f_navn, m_navn, e_navn) VALUES
 (1, 'Siri', 'M.', 'L'),
@@ -64,11 +67,11 @@ INSERT INTO bruker (id, f_navn, m_navn, e_navn, epost, mobil) VALUES
 (8, 'Eiril', 'Sofie', 'Sola', 'eirilsola@example.no', '97888888'),
 (9,'Johnny', 'J.', 'Johansen', 'johnny@stud.ntnu.no', '90000001'); -- Spesifikk bruker vi skulle legge inn
 
-INSERT INTO type_gruppetrening(okt_id, program_id, type_) VALUES
+INSERT INTO type_gruppetrening(id, program_id, type_) VALUES
 (1, 1, 'spinning'),
-(1, 2, 'spinning'),
-(1, 3, 'spinning'),
-(1, 4, 'spinning');
+(2, 2, 'spinning'),
+(3, 3, 'spinning'),
+(4, 4, 'spinning');
 
 INSERT INTO program(id, program_navn, beskrivelse) VALUES
 (1, 'Spin45', 'En variert spinningtime med 2-3 arbeidsperioder som passer for alle. Perfekt for deg som er ny på spinning! Du styrer intensiteten selv, og vi bruker takta til å tråkke oss gjennom timen.'),
@@ -129,16 +132,29 @@ INSERT INTO tilbyr (treningsenter_id, fasilitet_id) VALUES
 
 INSERT INTO gruppetrening_okt (id, ansatt_id, type_id, treningsenter_id, sal_id, dato, start_tid, slutt_tid, publisert_tid, kapasitet) VALUES
 -- Alle spinningøktene, på Øya og Dragvoll, 16.-18.mars
-(1, 4, 1, 1, 202, '2025-03-16', '07:00:00', '07:45:00', '2025-03-14 07:00:00', 38), -- Spin 4x4, Øya
-(2, 1, 1, 2, 701, '2025-03-16', '16:30:00', '17:15:00', '2025-03-14 16:30:00', 20), -- Spin 4x4, Dragvoll
-(3, 3, 1, 1, 202, '2025-03-16', '16:30:00', '17:15:00', '2025-03-14 16:30:00', 38), -- Spin 45, Øya
-(4, 5, 1, 1, 202, '2025-03-16', '17:40:00', '18:35:00', '2025-03-14 17:40:00', 38), -- Spin 8x3, Øya
-(5, 2, 1, 1, 202, '2025-03-16', '19:00:00', '20:00:00', '2025-03-14 19:00:00', 38), -- Spin60, Øya
-(6, 6, 1, 1, 202, '2025-03-17', '07:00:00', '07:55:00', '2025-03-15 07:00:00', 38), -- Spin 8x3, Øya
-(7, 7, 1, 1, 202, '2025-03-17', '18:30:00', '19:30:00', '2025-03-15 18:30:00', 38), -- Spin60, Øya
-(8, 8, 1, 1, 202, '2025-03-17', '19:45:00', '20:30:00', '2025-03-15 19:45:00', 38), -- Spin 4x4, Øya
-(9, 6, 1, 1, 202, '2025-03-18', '16:15:00', '17:15:00', '2025-03-16 16:15:00', 38), -- Spin60, Øya
-(10, 9, 1, 2, 701, '2025-03-18', '16:30:00', '17:15:00', '2025-03-16 16:30:00', 20), -- Spin45, Dragvoll
-(11, 10, 1, 1, 202, '2025-03-18', '17:30:00', '18:15:00', '2025-03-16 17:30:00', 38), -- Spin 4x4, Øya
-(12, 11, 1, 1, 202, '2025-03-18', '18:30:00', '19:15:00', '2025-03-16 18:30:00', 38), -- Spin45, Øya
-(13, 12, 1, 1, 202, '2025-03-18', '19:30:00', '20:25:00', '2025-03-16 19:30:00', 38); -- Spin 8x3, Øya
+(1, 4, 1, 1, 202, '2026-03-16', '07:00:00', '07:45:00', '2026-03-14 07:00:00', 38), -- Spin 4x4, Øya
+(2, 1, 1, 2, 701, '2026-03-16', '16:30:00', '17:15:00', '2026-03-14 16:30:00', 20), -- Spin 4x4, Dragvoll
+(3, 3, 1, 1, 202, '2026-03-16', '16:30:00', '17:15:00', '2026-03-14 16:30:00', 38), -- Spin 45, Øya
+(12, 11, 1, 1, 202, '2026-03-18', '18:30:00', '19:15:00', '2026-03-16 18:30:00', 38), -- Spin45, Øya
+(4, 5, 1, 1, 202, '2026-03-16', '17:40:00', '18:35:00', '2026-03-14 17:40:00', 38), -- Spin 8x3, Øya
+(5, 2, 1, 1, 202, '2026-03-16', '19:00:00', '20:00:00', '2026-03-14 19:00:00', 38), -- Spin60, Øya
+(6, 6, 1, 1, 202, '2026-03-17', '07:00:00', '07:55:00', '2026-03-15 07:00:00', 38), -- Spin 8x3, Øya
+(7, 7, 1, 1, 202, '2026-03-17', '18:30:00', '19:30:00', '2026-03-15 18:30:00', 38), -- Spin60, Øya
+(8, 8, 1, 1, 202, '2026-03-17', '19:45:00', '20:30:00', '2026-03-15 19:45:00', 38), -- Spin 4x4, Øya
+(9, 6, 1, 1, 202, '2026-03-18', '16:15:00', '17:15:00', '2026-03-16 16:15:00', 38), -- Spin60, Øya
+(10, 9, 1, 2, 701, '2026-03-18', '16:30:00', '17:15:00', '2026-03-16 16:30:00', 20), -- Spin45, Dragvoll
+(11, 10, 1, 1, 202, '2026-03-18', '17:30:00', '18:15:00', '2026-03-16 17:30:00', 38), -- Spin 4x4, Øya
+(13, 12, 1, 1, 202, '2026-03-18', '19:30:00', '20:25:00', '2026-03-16 19:30:00', 38), -- Spin 8x3, Øya
+
+-- Tidligere gruppeøkter, som bruker Johnny har vært med på:
+(14, 1, 1, 1, 202, '2026-01-10', '17:00:00', '17:45:00', '2026-01-08 17:00:00', 38),
+(15, 2, 1, 1, 202, '2026-02-03', '18:00:00', '19:00:00', '2026-02-01 18:00:00', 38),
+(16, 9, 1, 2, 701, '2026-03-12', '16:30:00', '17:15:00', '2026-03-10 16:30:00', 20);
+
+INSERT INTO booking (id, okt_id, bruker_id, opprettet_tid, kansellert_tid, status, tidspunkt_sjekketinn) VALUES
+-- Bookinger til bruker Johnny:
+(1, 14, 9, '2026-01-09 12:00:00', NULL, 'deltatt', '2026-01-10 16:50:00'),
+(2, 15, 9, '2026-02-02 14:00:00', NULL, 'deltatt', '2026-02-03 17:52:00'),
+(3, 16, 9, '2026-03-11 18:30:00', NULL, 'deltatt', '2026-03-12 16:20:00'),
+(4, 3, 9, '2026-03-14 16:39:00', NULL, 'deltatt', '2026-03-16 16:26:00'),
+(5, 8, 9, '2026-03-15 19:47:00', NULL, 'kansellert', NULL);
