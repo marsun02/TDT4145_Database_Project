@@ -149,10 +149,11 @@ CREATE TABLE booking(
 );
 
 CREATE TABLE prikk(
-  id             INT NOT NULL,
-  bruker_id      INT NOT NULL,
-  dato           DATE        ,
-  grunn          VARCHAR(250),
+  id             INT NOT NULL ,
+  bruker_id      INT NOT NULL ,
+  dato           DATE         ,
+  slutt_dato     DATE NOT NULL,
+  grunn          VARCHAR(250) ,
   PRIMARY KEY (id),
   FOREIGN KEY (bruker_id) REFERENCES bruker(id)
 );
@@ -182,12 +183,4 @@ CREATE TABLE program(
   program_navn    VARCHAR(100) NOT NULL,
   beskrivelse     VARCHAR(250),
   PRIMARY KEY (id)
-);
-
-CREATE TABLE svarteliste (
-  bruker_id   INT NOT NULL,
-  start_dato  DATE NOT NULL,
-  slutt_dato  DATE NOT NULL,
-  PRIMARY KEY (bruker_id, start_dato),
-  FOREIGN KEY (bruker_id) REFERENCES bruker(id)
 );
