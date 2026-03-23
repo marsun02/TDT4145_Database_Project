@@ -7,10 +7,11 @@ CREATE TABLE ansatt (
 );
 
 CREATE TABLE type_gruppetrening(
-  okt_id              INT NOT NULL,
+  id              INT NOT NULL,
   program_id      INT NOT NULL,
   type_           VARCHAR(50),
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (program_id) REFERENCES program(id)
 );
 
 CREATE TABLE bruker(
@@ -72,13 +73,21 @@ CREATE TABLE medlem(
 CREATE TABLE treningsenter(
   id            INT NOT NULL,
   apningstid_id   INT NOT NULL,
-  bemanningstid_id   INT,
   adresse_id       INT NOT NULL,
   navn            VARCHAR(50) NOT NULL,
   selvtrening     BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY(id),
   FOREIGN KEY(apningstid_id)  REFERENCES apningstid(id),
   FOREIGN KEY(adresse_id) REFERENCES adresse(id)
+);
+
+-- Koblingstabell mellom treningssenter og bemanningstid
+CREATE TABLE treningsenter_bemanningstid(
+  treningsenter_id INT,
+  bemanningstid_id INT,
+  PRIMARY KEY (treningsenter_id, bemanningstid_id),
+  FOREIGN KEY (treningsenter_id) REFERENCES treningsenter(id),
+  FOREIGN KEY (bemanningstid_id) REFERENCES bemanningstid(id)
 );
 
 CREATE TABLE sal(
