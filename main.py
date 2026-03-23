@@ -36,44 +36,44 @@ def brukstilfelle_1():
 def brukstilfelle_2():
     print("Brukstilfelle 2: Booking av trening")
     os.chdir(os.path.join(BASE_DIR, "brukstilfelle-2"))
-    os.system("python booking.py")
-    os.chdir("..")
+    os.system(f'"{sys.executable}" booking.py')
+    os.chdir(BASE_DIR)
 
 def brukstilfelle_3():
     print("Brukstilfelle 3: Registrering av oppmøte")
     os.chdir(os.path.join(BASE_DIR, "brukstilfelle-3"))
-    os.system("python attendance.py")
-    os.chdir("..")
+    os.system(f'"{sys.executable}" attendance.py')
+    os.chdir(BASE_DIR)
 
 def brukstilfelle_4():
     print("Brukstilfelle 4: Ukeplan")
     os.chdir(os.path.join(BASE_DIR, "brukstilfelle-4"))
-    os.system("python brukstilfelle-4.py")
-    os.chdir("..")
+    os.system(f'"{sys.executable}" brukstilfelle-4.py')
+    os.chdir(BASE_DIR)
 
 def brukstilfelle_5():
     print("Brukstilfelle 5: Personlig besøkshistorie")
     os.chdir(os.path.join(BASE_DIR, "brukstilfelle-5"))
-    os.system("python history.py")
-    os.chdir("..")
+    os.system(f'"{sys.executable}" history.py')
+    os.chdir(BASE_DIR)
 
 def brukstilfelle_6():
     print("Brukstilfelle 6: Svartelisting")
     os.chdir(os.path.join(BASE_DIR, "brukstilfelle-6"))
-    os.system("python svarteliste.py")
-    os.chdir("..")
+    os.system(f'"{sys.executable}" svarteliste.py')
+    os.chdir(BASE_DIR)
 
 def brukstilfelle_7():
     print("Brukstilfelle 7: Flest treninger i måned")
     os.chdir(os.path.join(BASE_DIR, "brukstilfelle-7"))
-    os.system("python flest_treninger.py 03 2026")
-    os.chdir("..")
+    os.system(f'"{sys.executable}" flest_treninger.py 03 2026')
+    os.chdir(BASE_DIR)
 
 def brukstilfelle_8():
     print("Brukstilfelle 8: Felles treninger")
     os.chdir(os.path.join(BASE_DIR, "brukstilfelle-8"))
-    os.system("python common.py")
-    os.chdir("..")
+    os.system(f'"{sys.executable}" common.py')
+    os.chdir(BASE_DIR)
 
 def main():
     while True:
