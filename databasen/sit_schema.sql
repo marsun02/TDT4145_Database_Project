@@ -58,7 +58,6 @@ CREATE TABLE treningsenter(
   apningstid_id   INT NOT NULL,
   adresse_id       INT NOT NULL,
   navn            VARCHAR(50) NOT NULL,
-  selvtrening     BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY(id),
   FOREIGN KEY(apningstid_id)  REFERENCES apningstid(id),
   FOREIGN KEY(adresse_id) REFERENCES adresse(id)

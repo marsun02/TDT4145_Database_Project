@@ -12,7 +12,7 @@ def svartelist_bruker(epost):
     cur = conn.cursor()
 
     # Finn bruker
-    sql_bruker = les_sql("databasen/finn_bruker.sql")
+    sql_bruker = les_sql("databasen/sql/finn_bruker.sql")
     cur.execute(sql_bruker, (epost,))
     bruker = cur.fetchone()
 
@@ -24,12 +24,12 @@ def svartelist_bruker(epost):
     bruker_id = bruker["id"]
 
     # Sjekk prikker siste 30 dager
-    sql_prikker = les_sql("databasen/sjekk_prikker.sql")
+    sql_prikker = les_sql("databasen/sql/sjekk_prikker.sql")
     cur.execute(sql_prikker, (bruker_id,))
     antall = cur.fetchone()["antall"]
 
     # Sjekk om allerede svartelistet
-    sql_sjekk = les_sql("databasen/sjekk_svarteliste.sql")
+    sql_sjekk = les_sql("databasen/sql/sjekk_svarteliste.sql")
     cur.execute(sql_sjekk, (bruker_id,))
     allerede = cur.fetchone()
 
@@ -40,7 +40,7 @@ def svartelist_bruker(epost):
 
     # Hvis nok prikker → svartelist
     if antall >= 3:
-        sql_insert = les_sql("databasen/sett_svarteliste.sql")
+        sql_insert = les_sql("databasen/sql/sett_svarteliste.sql")
         cur.execute(sql_insert, (bruker_id,))
         conn.commit()
         print("Bruker er nå svartelistet i 30 dager.")

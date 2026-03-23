@@ -3,7 +3,7 @@ from pathlib import Path
 
 base = Path(__file__).resolve().parent
 db_fil = base / "sit.db"
-sql_fil = base / "finn_timeplan.sql"
+sql_fil = base / "sql/finn_timeplan.sql"
 
 # Står i forumet at det holder å legge inn startdato som parameter. Vi legger altså ikke inn ukenummer.
 start_dato = "2025-03-16"

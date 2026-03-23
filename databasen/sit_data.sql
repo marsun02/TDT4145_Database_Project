@@ -8,7 +8,7 @@ INSERT INTO adresse (id, gate, nr, postnr, poststed) VALUES
 
 -- Øya treningssenter er ubemannet
 
-INSERT INTO treningsenter (id, apningstid_id, adresse_id, navn, selvtrening) VALUES
+INSERT INTO treningsenter (id, apningstid_id, adresse_id, navn) VALUES
 (1, 1, 1, 'Øya', TRUE),
 (2, 2, 2, 'Dragvoll', TRUE);
 
